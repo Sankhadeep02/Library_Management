@@ -1,0 +1,40 @@
+<div class="font w-full h-24 text-3xl pt-12 pl-10 font-bold text-red-400"> 
+  <p>Publisher </p>
+</div>
+
+
+<div class="w-full h-auto bg--200">
+
+  <div class="w-full h-auto flex  justify-end text-lg font-medium pt-20 ">
+      <a routerLink="addpub" class="flex w-44 h-10 items-center justify-center text-white self-end bg-red-400 cursor-pointer transition duration-100 hover:bg-red-500 ease-in ">
+          <mat-icon>add</mat-icon>
+          <p class="ml-2">Add </p>
+      </a>
+  </div>
+  
+  <div style="height:60vh" class="w-full  overflow-auto mx-3">
+  <table class="table-auto w-full px-3 border-red-400 border mt-20">
+      <thead class="text-white bg-red-400">
+        <tr>
+          <th class="px-4 py-2 border-r">Id</th>
+          <th class="px-4 py-2 border-r"> Name</th>
+          <th class="px-4 py-2 border-r">Email.</th>
+          <th class="px-4 py-2 border-r"> Mobile No.</th>
+          <th class="px-4 py-2 border-r">Address</th>
+          <th class="px-4 py-2">Action</th>
+        </tr>
+      </thead>
+      <tr class="bg-gray-100" *ngFor="let data of data">
+        <td class="border px-4 py-2">{{data.id}}</td>
+        <td class="border px-4 py-2 whitespace-normal break-words">{{data.name}}</td>
+        <td class="border px-4 py-2">{{data.email}}</td>
+        <td class="border px-4 py-2">{{data.phone}}</td>
+        <td class="border px-4 py-2">{{data.address}}</td>
+        <td class="border px-4 py-2">
+          <div (click)="onClickDelete(data.id)" class="bg-red-300 text-white cursor-pointer text-center transition duration-100 hover:bg-red-500 ease-in rounded-lg shadow-lg">Delete</div>
+          <a routerLink="update/{{data.id}}" class="bg-red-300 mt-1 text-white cursor-pointer text-center transition duration-100 hover:bg-red-500 ease-in rounded-lg shadow-lg"><div class="bg-red-300 mt-1 hover:bg-red-500 rounded-lg shadow-lg">Update</div></a>
+          </td>
+    </tr>
+    </table>
+  </div>
+  </div>

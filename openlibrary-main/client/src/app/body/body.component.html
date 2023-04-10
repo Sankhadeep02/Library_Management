@@ -1,0 +1,168 @@
+
+<div [formGroup]="myForm"  class=" wd-ht  px-5 overflow-hidden  ">
+
+
+   
+  <div class="font w-full h-24 text-3xl pt-12 pl-10 font-bold text-red-400"> Provide ID and opt for the correct option</div>
+  <div class="h-10 w-4/5 80  ml-10 mt-5 mr-28"><input type="text" id="inputValue" formControlName="inputValue"  class="w-full h-full outline-none px-3 rounded-lg font-medium border-red-400 border-2 " /></div>
+  <div class="ml-10 flex justify-between">
+     <button (click)="onClickAuthor()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Author with Id </button>
+     <button (click)="onClickAdmin()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Admin with Id </button>
+     <button (click)="onClickStudent()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Student with Id </button>
+     <button (click)="onClickBook()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Book with Id </button>
+     <button (click)="onClickLoan()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Loan with Id </button>
+     <button (click)="onClickPublisher()" class="bg-red-400 mr-2 p-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Publisher with Id </button>
+  </div>
+
+
+
+  <div  class="   px-5 overflow-auto h-80  ">
+    <!-- ADMIN -->
+    <div *ngIf="admin_" style="height:60vh" class="w-full  overflow-auto mx-3">
+      <table>
+    <thead class="text-white bg-red-400">
+      <tr>
+        <th class="px-4 py-2 border-r">Id</th>
+        <th class="px-4 py-2 border-r"> Name</th>
+        <th class="px-4 py-2 border-r">Username</th>
+        <th class="px-4 py-2 border-r">Password</th>
+       
+      </tr>
+    </thead>
+    
+    <tr class="bg-gray-100" *ngFor="let data of data">
+      <td class="border px-4 py-2">{{data.id}}</td>
+      <td class="border px-4 py-2 whitespace-normal break-words">{{data.name}}</td>
+      <td class="border px-4 py-2">{{data.username}}</td>
+      <td class="border px-4 py-2">{{data.password}}</td>
+     
+      </tr>
+
+  </table>
+  </div>
+
+  <!-- AUTHOR -->
+  <div *ngIf="author" style="height:60vh" class="w-full  overflow-auto mx-3">
+    <table class="table-auto w-full px-3 border-red-400 border mt-20">
+        <thead class="text-white bg-red-400">
+          <tr>
+            <th class="px-4 py-2 border-r">Id</th>
+            <th class="px-4 py-2 border-r"> Name</th>
+            <th class="px-4 py-2 border-r">Nationality</th>
+            <th class="px-4 py-2 border-r">Birth Date</th>
+            
+          </tr>
+        </thead>
+        <tr class="bg-gray-100" *ngFor="let data of data">
+          <td class="border px-4 py-2">{{data &&  data.id}}</td>
+          <td class="border px-4 py-2 whitespace-normal break-words">{{data && data.name}}</td>
+          <td class="border px-4 py-2">{{data && data.birthDate}}</td>
+          <td class="border px-4 py-2">{{data && data.nationality}}</td>
+          
+      </tr>
+      </table>
+    </div>
+
+    <!-- BOOK -->
+    <div *ngIf="book" style="height:60vh" class="w-full  overflow-auto mx-3">
+      <table class="table-auto w-full px-3 border-red-400 border mt-20">
+          <thead class="text-white bg-red-400">
+            <tr>
+              <th class="px-4 py-2 border-r">Id</th>
+              <th class="px-4 py-2 border-r">Book Name</th>
+              <th class="px-4 py-2 border-r">Author</th>
+              <th class="px-4 py-2 border-r">ISBN</th>
+              <th class="px-4 py-2 border-r">Publication</th>
+              
+            </tr>
+          </thead>
+          <tr class="bg-gray-100" *ngFor="let data of data ">
+            <td class="border px-4 py-2">{{data && data.id}}</td>
+            <td class="border px-4 py-2 whitespace-normal break-words">{{data && data.name}}</td>
+            <td class="border px-4 py-2">{{data && data.author}}</td>
+            <td class="border px-4 py-2">{{data && data.isbn}}</td>
+            <td class="border px-4 py-2">{{data && data.publication}}</td>
+           
+        </tr>
+        </table>
+      </div>
+
+      <!-- LOAN -->
+      <div *ngIf="loan" style="height:60vh" class="w-full  overflow-auto mx-3">
+        <table class="table-auto w-full px-3 border-red-400 border mt-20">
+            <thead class="text-white bg-red-400">
+              <tr>
+                <th class="px-4 py-2 border-r">Id</th>
+                <th class="px-4 py-2 border-r"> Book Id</th>
+                <th class="px-4 py-2 border-r">Student Id</th>
+                <th class="px-4 py-2 border-r">Checkout Date</th>
+                <th class="px-4 py-2 border-r">Due Date</th>
+                <th class="px-4 py-2 border-r">Return Date</th>
+                
+              </tr>
+            </thead>
+            <tr class="bg-gray-100" *ngFor="let data of data">
+              <td class="border px-4 py-2">{{data.id}}</td>
+              <td class="border px-4 py-2 whitespace-normal break-words">{{data.bookId}}</td>
+              <td class="border px-4 py-2">{{data.studentId}}</td>
+              <td class="border px-4 py-2">{{data.checkoutDate}}</td>
+              <td class="border px-4 py-2">{{data.dueDate}}</td>
+              <td class="border px-4 py-2">{{data.returnDate}}</td>
+              
+          </tr>
+          </table>
+        </div>
+
+        <!-- PUBLISHER -->
+        <div *ngIf="publisher" style="height:60vh" class="w-full  overflow-auto mx-3">
+          <table class="table-auto w-full px-3 border-red-400 border mt-20">
+              <thead class="text-white bg-red-400">
+                <tr>
+                  <th class="px-4 py-2 border-r">Id</th>
+                  <th class="px-4 py-2 border-r"> Name</th>
+                  <th class="px-4 py-2 border-r">Email.</th>
+                  <th class="px-4 py-2 border-r"> Mobile No.</th>
+                  <th class="px-4 py-2 border-r">Address</th>
+                  
+                </tr>
+              </thead>
+              <tr class="bg-gray-100" *ngFor="let data of data">
+                <td class="border px-4 py-2">{{data.id}}</td>
+                <td class="border px-4 py-2 whitespace-normal break-words">{{data.name}}</td>
+                <td class="border px-4 py-2">{{data.email}}</td>
+                <td class="border px-4 py-2">{{data.phone}}</td>
+                <td class="border px-4 py-2">{{data.address}}</td>
+               
+            </tr>
+            </table>
+          </div>
+
+          <!-- STUDENT -->
+          <div *ngIf="student" style="height:60vh" class="w-full  overflow-auto mx-3">
+            <table class="table-auto w-full px-3 border-red-400 border mt-20">
+                <thead class="text-white bg-red-400">
+                  <tr>
+                    <th class="px-4 py-2 border-r">Id</th>
+                    <th class="px-4 py-2 border-r"> Name</th>
+                    <th class="px-4 py-2 border-r">Roll No.</th>
+                    <th class="px-4 py-2 border-r">Department</th>
+                    <th class="px-4 py-2 border-r"> Mobile No.</th>
+                    <th class="px-4 py-2 border-r">Birth Date</th>
+                   
+                  </tr>
+                </thead>
+
+                <tr class="bg-gray-100" *ngFor="let data of data">
+                  <td class="border px-4 py-2">{{data.id}}</td>
+                  <td class="border px-4 py-2 whitespace-normal break-words">{{data.name}}</td>
+                  <td class="border px-4 py-2">{{data.rollNumber}}</td>
+                  <td class="border px-4 py-2">{{data.department}}</td>
+                  <td class="border px-4 py-2">{{data.mobileNumber}}</td>
+                  <td class="border px-4 py-2">{{data.birthDate}}</td>
+                
+              </tr>
+              </table>
+            </div>
+            </div>
+     
+</div>

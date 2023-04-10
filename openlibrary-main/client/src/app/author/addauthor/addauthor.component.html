@@ -1,0 +1,34 @@
+<!-- <div class="font w-full h-24 text-3xl pt-12 pl-10 font-bold text-red-400"> 
+  <p></p>
+</div> -->
+<div *ngIf="!id" class="mb-10 mt-20 ml-10 text-3xl font-medium w-full text-center  text-red-400"> Add Author </div>
+
+<div *ngIf="id" class="mb-10 mt-20 ml-10 text-3xl font-medium w-full text-center  text-red-400">Update Book </div>
+
+<div>
+    <div class="bg-red-400 mx-52 p-2 md:p-20 rounded-2xl shadow-lg">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <label class="flex flex-col mb-3 text-xl text-white font-medium" *ngIf="id">
+          Id : 
+          <input required class="w-full h-10 rounded-lg px-4 shadow-xl mt-1 text-gray-500 font-normal outline-none "  type="text" placeholder="{{id}} (current book)" formControlName="id">
+        </label>
+        <label class="flex flex-col mb-3 text-xl text-white font-medium">
+           Name:
+          <input required class="w-full h-10 rounded-lg px-4 shadow-xl mt-1 text-gray-500 font-normal outline-none "  type="text" formControlName="name">
+        </label>
+      
+        <label class="flex mb-3 text-xl text-white font-medium flex-col">
+          Nationality:
+          <input required class="w-full h-10 rounded-lg px-4 shadow-xl mt-1 text-gray-500 font-normal outline-none " type="text" formControlName="nationality">
+        </label>
+
+        <label class="flex mb-3 text-xl text-white font-medium flex-col">
+          Birth Day:
+          <input required class="w-full h-10 rounded-lg px-4 shadow-xl mt-1 text-gray-500 font-normal outline-none " type="text" formControlName="birthDate">
+        </label>
+
+        <br>
+        <button class="w-44 h-10 text-white shadow-2xl bg-red-300 rounded-lg hover:bg-red-500" type="submit">Submit</button>
+      </form>
+      </div>
+</div>
