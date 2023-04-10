@@ -4,23 +4,23 @@
 
    
   <div class="font w-full h-24 text-3xl pt-12 pl-10 font-bold text-red-400"> Provide ID and opt for the correct option</div>
-  <div class="h-10 w-4/5 80  ml-10 mt-5 mr-28"><input type="text" id="inputValue" formControlName="inputValue"  class="w-full h-full outline-none px-3 rounded-lg font-medium border-red-400 border-2 " /></div>
+  <div class="h-10 w-4/5 80  ml-10 mt-5 mr-28"><input type="text" id="inputValue" formControlName="inputValue"  class="w-full h-full outline-none px-3 lg font-medium border-red-400 border-2 " /></div>
   <div class="ml-10 flex justify-between">
-     <button (click)="onClickAuthor()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Author with Id </button>
-     <button (click)="onClickAdmin()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Admin with Id </button>
-     <button (click)="onClickStudent()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Student with Id </button>
-     <button (click)="onClickBook()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Book with Id </button>
-     <button (click)="onClickLoan()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Loan with Id </button>
-     <button (click)="onClickPublisher()" class="bg-red-400 mr-2 p-2 w-2/4 mt-2 rounded-lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Publisher with Id </button>
+     <button (click)="onClickAuthor()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Author with Id </button>
+     <button (click)="onClickAdmin()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Admin with Id </button>
+     <button (click)="onClickStudent()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Student with Id </button>
+     <button (click)="onClickBook()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Book with Id </button>
+     <button (click)="onClickLoan()" class="bg-red-400 p-2 mr-2 w-2/4 mt-2 lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Loan with Id </button>
+     <button (click)="onClickPublisher()" class="bg-red-400 mr-2 p-2 w-2/4 mt-2 lg cursor-pointer hover:bg-red-500 text-center font-medium text-white">Find Publisher with Id </button>
   </div>
 
 
 
-  <div  class="   px-5 overflow-auto h-80  ">
+  <div  class="   px-5 mt-88 h-80  ">
     <!-- ADMIN -->
     <div *ngIf="admin_" style="height:60vh" class="w-full  overflow-auto mx-3">
-      <table>
-    <thead class="text-white bg-red-400">
+      <table class="table-auto w-full px-3 border-red-400 border mt-20">
+          <thead class="text-white bg-red-400">
       <tr>
         <th class="px-4 py-2 border-r">Id</th>
         <th class="px-4 py-2 border-r"> Name</th>
@@ -30,7 +30,7 @@
       </tr>
     </thead>
     
-    <tr class="bg-gray-100" *ngFor="let data of data">
+    <tr class="bg-gray-100">
       <td class="border px-4 py-2">{{data.id}}</td>
       <td class="border px-4 py-2 whitespace-normal break-words">{{data.name}}</td>
       <td class="border px-4 py-2">{{data.username}}</td>
@@ -53,7 +53,7 @@
             
           </tr>
         </thead>
-        <tr class="bg-gray-100" *ngFor="let data of data">
+        <tr class="bg-gray-100" >
           <td class="border px-4 py-2">{{data &&  data.id}}</td>
           <td class="border px-4 py-2 whitespace-normal break-words">{{data && data.name}}</td>
           <td class="border px-4 py-2">{{data && data.birthDate}}</td>
@@ -76,7 +76,7 @@
               
             </tr>
           </thead>
-          <tr class="bg-gray-100" *ngFor="let data of data ">
+          <tr class="bg-gray-100" >
             <td class="border px-4 py-2">{{data && data.id}}</td>
             <td class="border px-4 py-2 whitespace-normal break-words">{{data && data.name}}</td>
             <td class="border px-4 py-2">{{data && data.author}}</td>
@@ -101,7 +101,7 @@
                 
               </tr>
             </thead>
-            <tr class="bg-gray-100" *ngFor="let data of data">
+            <tr class="bg-gray-100" >
               <td class="border px-4 py-2">{{data.id}}</td>
               <td class="border px-4 py-2 whitespace-normal break-words">{{data.bookId}}</td>
               <td class="border px-4 py-2">{{data.studentId}}</td>
@@ -126,7 +126,7 @@
                   
                 </tr>
               </thead>
-              <tr class="bg-gray-100" *ngFor="let data of data">
+              <tr class="bg-gray-100" >
                 <td class="border px-4 py-2">{{data.id}}</td>
                 <td class="border px-4 py-2 whitespace-normal break-words">{{data.name}}</td>
                 <td class="border px-4 py-2">{{data.email}}</td>
@@ -152,7 +152,7 @@
                   </tr>
                 </thead>
 
-                <tr class="bg-gray-100" *ngFor="let data of data">
+                <tr class="bg-gray-100" >
                   <td class="border px-4 py-2">{{data.id}}</td>
                   <td class="border px-4 py-2 whitespace-normal break-words">{{data.name}}</td>
                   <td class="border px-4 py-2">{{data.rollNumber}}</td>

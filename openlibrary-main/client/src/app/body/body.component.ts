@@ -46,7 +46,7 @@ export class BodyComponent {
 
 
 
-    this.http.get<any>(this.url+'admin_/findById/'+id).subscribe(data => {
+    this.http.get<any>(this.url+'admin/findById/'+id).subscribe(data => {
       this.data = data;  
 
       this.admin_ = true;
